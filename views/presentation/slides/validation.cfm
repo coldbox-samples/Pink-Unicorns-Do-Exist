@@ -59,4 +59,4 @@ var results = validateModel( myCar );
     </table>
     <br /><br />
 </cfoutput>
-<cfdump var="#prc.validationResults#" expand="false">
+<cfdump var="#prc.validationResults#" expand="true">

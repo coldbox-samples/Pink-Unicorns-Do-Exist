@@ -1,6 +1,6 @@
 {
     "name":"Car Tracker CBORM Demo",
-    "version":"1.0.0",
+    "version":"2.0.0",
     "author":"Luis Majano <lmajano@ortussolutions.com>",
     "createPackageDirectory":false,
     "homepage":"http://www.coldbox.org",
@@ -13,18 +13,9 @@
     "slug":"CarTracker-Demo",
     "shortDescription":"An awesome demo of the CodlBox 4 ORM Services in action",
     "type":"Demos",
-    "keywords":[
-        
-    ],
+    "keywords":[],
     "private":false,
-    "engines":[
-        {
-            "type":"railo",
-            "version":">=4.1.x"
-        }
-    ],
     "defaultEngine":"",
-    "defaultPort":8090,
     "projectURL":"",
     "license":[
         {
@@ -33,22 +24,19 @@
         }
     ],
     "contributors":[
-        "Joel Watson <existdissolve@gmail.com>"
+        "Joel Watson <existdissolve@gmail.com>",
+        " Javier Quintero <jquintero@ortussolutions.com>"
     ],
     "dependencies":{
-        "coldbox":"4.1.0+00002",
-        "cborm":"1.0.3"
+        "coldbox":"^5.0.0",
+        "cborm":"^1.0.3"
     },
-    "devDependencies":{
-        
-    },
+    "devDependencies":{},
     "installPaths":{
-        "coldbox":"coldbox",
-        "cborm":"modules/cborm"
+        "coldbox":"coldbox/",
+        "cborm":"modules/cborm/"
     },
-    "ignore":[
-        
-    ],
+    "ignore":[],
     "testbox":{
         "runner":[
             {

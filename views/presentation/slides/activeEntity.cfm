@@ -36,7 +36,7 @@ public ActiveCar function init() {
 var car = entityNew( "ActiveCar" );
 prc.newCar = car.new( properties={ Year= 2012, ListPrice= 22000 });
 </pre>
-<cfdump var="#prc.newcar#" expand="false">
+<cfdump var="#prc.newcar#" expand="true">
             </div>
         </div>
     </div>
@@ -56,7 +56,7 @@ prc.newCar = car.new( properties={ Year= 2012, ListPrice= 22000 });
 var car = entityNew( "ActiveCar" );
 prc.myCar = car.findWhere( criteria={ CarID = 12 } );
 </pre>
-<cfdump var="#prc.mycar#" expand="false">
+<cfdump var="#prc.mycar#" expand="true">
             </div>
         </div>
     </div>
@@ -76,7 +76,7 @@ prc.myCar = car.findWhere( criteria={ CarID = 12 } );
 var car = entityNew( "ActiveCar" );
 prc.cars = car.list( max=3, asQuery=false );
 </pre>
-<cfdump var="#prc.cars#" expand="false">
+<cfdump var="#prc.cars#" expand="true">
             </div>
         </div>
     </div>

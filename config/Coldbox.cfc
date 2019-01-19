@@ -22,7 +22,7 @@ component{
 
 			//Error/Exception Handling
 			exceptionHandler		= "",
-			onInvalidEvent			= "",
+			invalidEventHandler			= "",
 			customErrorTemplate		= "",
 
 			//Application Aspects

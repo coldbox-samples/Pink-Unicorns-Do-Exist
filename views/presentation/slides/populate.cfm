@@ -17,4 +17,4 @@ prc.newCar = carService.populate(
     composeRelationships = true 
 );
 </pre>
-<cfdump var="#prc.newCar#" expand="false">
+<cfdump var="#prc.newCar#" expand="true">

@@ -16,7 +16,7 @@ c.createAlias( "Make", "make", c.LEFT_JOIN )
  .isEq( "make.LongName", "Ford" )
  .list()
 </pre>
-<cfdump var="#prc.make#" expand="false">
+<cfdump var="#prc.make#" expand="true">
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@ c.createAlias( "SalesPeople", "staff" )
  .isEq( "position.LongName", "General Manager" )
  .list();
 </pre>
-<cfdump var="#prc.salespeople#" expand="false">
+<cfdump var="#prc.salespeople#" expand="true">
             </div>
         </div>
     </div>

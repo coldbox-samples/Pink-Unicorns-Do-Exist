@@ -51,7 +51,7 @@ getModel( "BaseORMService@cborm" );
 <pre>
 var newCar = ORMService.new( entityName='SimpleCar', properties={Year: 2012, ListPrice: 22000});
 </pre>
-<cfdump var="#prc.newcar#" expand="false">
+<cfdump var="#prc.newcar#" expand="true">
             </div>
         </div>
     </div>
@@ -70,7 +70,7 @@ var newCar = ORMService.new( entityName='SimpleCar', properties={Year: 2012, Lis
 <pre>
 var foundCar = ORMService.findWhere( entityName='SimpleCar', criteria={ CarID = 12 } );
 </pre>
-<cfdump var="#prc.mycar#" expand="false">
+<cfdump var="#prc.mycar#" expand="true">
             </div>
         </div>
     </div>
@@ -89,7 +89,7 @@ var foundCar = ORMService.findWhere( entityName='SimpleCar', criteria={ CarID = 
 <pre>
 var carList = ORMService.list( entityName='SimpleCar', max=3, asQuery=false );
 </pre>
-<cfdump var="#prc.cars#" expand="false">
+<cfdump var="#prc.cars#" expand="true">
             </div>
         </div>
     </div>

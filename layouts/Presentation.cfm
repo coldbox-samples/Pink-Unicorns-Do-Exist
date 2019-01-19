@@ -90,20 +90,20 @@
                     	<br>
 
                         <ul class="list-group">
-                            <li class="list-group-item"><a href="#event.buildLink( linkto='presentation/slides/baseormservice' )#">Base ORM Service</a></li>
-                            <li class="list-group-item"><a href="#event.buildLink( linkto='presentation/slides/activeentity' )#">Active Entity</a></li>
-                            <li class="list-group-item"><a href="#event.buildLink( linkto='presentation/slides/virtualentityservice' )#">Virtual Entity Service</a></li>
-                            <li class="list-group-item"><a href="#event.buildLink( linkto='presentation/slides/concreteservice' )#">Concrete Service</a></li>
-                            <li class="list-group-item"><a href="#event.buildLink( linkto='presentation/slides/populate' )#">Populate()</a></li>
-                            <li class="list-group-item"><a href="#event.buildLink( linkto='presentation/slides/validation' )#">Validation</a></li>
+                            <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/baseormservice' )#">Base ORM Service</a></li>
+                            <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/activeentity' )#">Active Entity</a></li>
+                            <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/virtualentityservice' )#">Virtual Entity Service</a></li>
+                            <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/concreteservice' )#">Concrete Service</a></li>
+                            <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/populate' )#">Populate()</a></li>
+                            <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/validation' )#">Validation</a></li>
                             <li class="list-group-item">
                             	<h3>Criteria Builder</h3>
                                 <ul>
-                                    <li class="list-group-item"><a href="#event.buildLink( linkto='presentation/slides/query_simple' )#">Simple Query</a></li>
-                                    <li class="list-group-item"><a href="#event.buildLink( linkto='presentation/slides/query_projection' )#">Projection</a></li>
-                                    <li class="list-group-item"><a href="#event.buildLink( linkto='presentation/slides/query_alias' )#">Aliases</a></li>
-                                    <li class="list-group-item"><a href="#event.buildLink( linkto='presentation/slides/query_subquery' )#">Subquery</a></li>
-                                    <li class="list-group-item"><a href="#event.buildLink( linkto='presentation/slides/query_logging' )#">SQL Logging</a></li>
+                                    <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/query_simple' )#">Simple Query</a></li>
+                                    <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/query_projection' )#">Projection</a></li>
+                                    <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/query_alias' )#">Aliases</a></li>
+                                    <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/query_subquery' )#">Subquery</a></li>
+                                    <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/query_logging' )#">SQL Logging</a></li>
                                 </ul>
                             </li>
                         </ul>

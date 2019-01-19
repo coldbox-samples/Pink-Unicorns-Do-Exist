@@ -31,7 +31,7 @@ property name="carService" inject="id:SimpleCarService";
 <pre>
 var newCar = carService.new( properties={Year: 2012, ListPrice: 22000});
 </pre>
-<cfdump var="#prc.newcar#" expand="false">
+<cfdump var="#prc.newcar#" expand="true">
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@ var newCar = carService.new( properties={Year: 2012, ListPrice: 22000});
 <pre>
 var foundCar = carService.findWhere( criteria={ CarID = 12 } );
 </pre>
-<cfdump var="#prc.mycar#" expand="false">
+<cfdump var="#prc.mycar#" expand="true">
             </div>
         </div>
     </div>
@@ -69,7 +69,7 @@ var foundCar = carService.findWhere( criteria={ CarID = 12 } );
 <pre>
 var carList = carService.list( max=3, asQuery=false );
 </pre>
-<cfdump var="#prc.cars#" expand="false">
+<cfdump var="#prc.cars#" expand="true">
             </div>
         </div>
     </div>
@@ -94,7 +94,7 @@ public function getNewCars() {
     return c.list( max=3, asQuery = false );
 }
 </pre>
-<cfdump var="#prc.newcars#" expand="false">
+<cfdump var="#prc.newcars#" expand="true">
             </div>
         </div>
     </div>

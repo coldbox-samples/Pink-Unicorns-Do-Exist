@@ -31,7 +31,7 @@ property name="virtualCarService" inject="entityService:SimpleCar";
 <pre>
 var newCar = virtualCarService.new( properties={Year: 2012, ListPrice: 22000});
 </pre>
-<cfdump var="#prc.newcar#" expand="false">
+<cfdump var="#prc.newcar#" expand="true">
             </div>
         </div>
     </div>
@@ -50,7 +50,7 @@ var newCar = virtualCarService.new( properties={Year: 2012, ListPrice: 22000});
 <pre>
 var foundCar = virtualCarService.findWhere( criteria={ CarID = 12 } );
 </pre>
-<cfdump var="#prc.mycar#" expand="false">
+<cfdump var="#prc.mycar#" expand="true">
             </div>
         </div>
     </div>
@@ -69,7 +69,7 @@ var foundCar = virtualCarService.findWhere( criteria={ CarID = 12 } );
 <pre>
 var carList = virtualCarService.list( max=3, asQuery=false );
 </pre>
-<cfdump var="#prc.cars#" expand="false">
+<cfdump var="#prc.cars#" expand="true">
             </div>
         </div>
     </div>

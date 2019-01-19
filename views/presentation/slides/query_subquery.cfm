@@ -12,4 +12,4 @@ c.add(
      .propertyIn( "CarID" )
 ).list();
 </pre>
-<cfdump var="#prc.results#" expand="false">
+<cfdump var="#prc.results#" expand="true">

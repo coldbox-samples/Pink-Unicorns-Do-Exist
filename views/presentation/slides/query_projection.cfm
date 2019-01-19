@@ -86,7 +86,7 @@ c.isTrue( "IsSold" )
  )
  .list()
 </pre>
-<cfdump var="#prc.properties#" expand="false">
+<cfdump var="#prc.properties#" expand="true">
             </div>
         </div>
     </div>
@@ -112,7 +112,7 @@ c.isTrue( "IsSold" )
  .resultTransformer( c.ALIAS_TO_ENTITY_MAP )
  .list()
 </pre>
-<cfdump var="#prc.transformed#" expand="false">
+<cfdump var="#prc.transformed#" expand="true">
             </div>
         </div>
     </div>

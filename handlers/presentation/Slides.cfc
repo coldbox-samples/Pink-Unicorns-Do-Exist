@@ -63,10 +63,10 @@ component {
     function validation( event, rc, prc ) {
         prc.pageTitle 	= "Entity Validation";
         prc.newCar 		= carService.new( properties={
-            /*Year = 2012,
+            Year = 2012,
             AcquisitionDate = "Henry",
             VIN = "VIN123-GJH-1923",
-            ListPrice = 3500*/
+            ListPrice = 3500
         });
         prc.validationResults = validateModel( target=prc.newCar );
     }
