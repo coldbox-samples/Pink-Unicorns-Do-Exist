@@ -13,10 +13,12 @@
         "ssl":{
             "enable":false,
             "port":"8443"
-        }
+        },
+        "directoryBrowsing":true
     },
     "jvm":{
-        "heapSize":"1024"
+        "heapSize":"768"
     },
-    "openBrowser":"true"
+    "openBrowser":true,
+    "debug":true
 }

@@ -44,6 +44,7 @@ component{
 	this.ormsettings = {
 		cfclocation 	= "models.orm",
 		datasource 		= "CarTracker",
+		// Logging is on so you can see and debug any issues
 		logsql			= true,
 		eventhandling	= true,
 		// Use the ColdBox WireBox Handler for events

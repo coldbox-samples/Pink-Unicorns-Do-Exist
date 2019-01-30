@@ -1,5 +1,12 @@
+# Engines
 WEB-INF
-coldbox
-testbox
-modules
+.engine
+
+# Dependencies
+coldbox/**
+testbox/**
+modules/**
+
+# env
+.env
 .settings
