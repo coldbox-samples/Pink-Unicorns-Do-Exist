@@ -22,14 +22,12 @@ component{
 
 			//Error/Exception Handling
 			exceptionHandler		= "",
-			invalidEventHandler			= "",
+			invalidEventHandler		= "",
 			customErrorTemplate		= "",
 
 			//Application Aspects
 			handlerCaching 			= false,
-			eventCaching			= false,
-			debugMode 				= true,
-			debugPassword			= ""
+			eventCaching			= false
 		};
 
 		// environment settings, create a detectEnvironment() method to detect it yourself.
@@ -39,19 +37,9 @@ component{
 			development = "^127\.,^localhost"
 		};
 
-		// Module Directives
-		modules = {
-			// Turn to false in production
-			autoReload = false,
-			// An array of modules names to load, empty means all of them
-			include = [],
-			// An array of modules names to NOT load, empty means none
-			exclude = []
-		};
-
-		//Layout Settings
+		// Layout Settings
 		layoutSettings = {
-			defaultLayout = "Presentation.cfm"
+			defaultLayout = "Main.cfm"
 		};
 
 		orm = {
@@ -65,10 +53,8 @@ component{
 			}
 		};
 
-		//Register interceptors as an array, we need order
+		// Register interceptors as an array, we need order
 		interceptors = [
-			 //SES
-			 {class="coldbox.system.interceptors.SES"}
 		];
 
 	}
