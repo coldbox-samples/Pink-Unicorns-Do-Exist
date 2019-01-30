@@ -11,7 +11,7 @@ component{
 			handlersIndexAutoReload = true,
 
 			//Implicit Events
-			defaultEvent			= "presentation.slides",
+			defaultEvent			= "slides.index",
 			requestStartHandler		= "",
 			requestEndHandler		= "",
 			applicationStartHandler = "",

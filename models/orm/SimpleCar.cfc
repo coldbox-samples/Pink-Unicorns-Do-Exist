@@ -18,9 +18,9 @@ component entityName="SimpleCar" table="Car" persistent=true extends="CarTracker
     property name="IsSold" column="IsSold" ormtype="boolean" default="0";
     property name="Active" column="Active" ormtype="boolean" default="1";
     // one-to-one
-    
+
     // one-to-many
-    
+
     // many-to-one
     property name="Make" column="MakeID" fieldtype="many-to-one" cfc="CarTracker.models.orm.option.Make" fkcolumn="MakeID" lazy="true";
     property name="Model" column="ModelID" fieldtype="many-to-one" cfc="CarTracker.models.orm.option.Model" fkcolumn="ModelID" lazy="true";
@@ -29,7 +29,7 @@ component entityName="SimpleCar" table="Car" persistent=true extends="CarTracker
     // many-to-many
     property name="SalesPeople" singularname="SalesPerson" fieldtype="many-to-many" cfc="CarTracker.models.orm.Staff" linktable="CarStaff" fkcolumn="CarID" inversejoincolumn="StaffID" lazy="extra";
     // calculated properties
-    
+
     // non-persistent properties and di
 
     // object constraints
@@ -38,12 +38,12 @@ component entityName="SimpleCar" table="Car" persistent=true extends="CarTracker
         "ListPrice" = { required=true, requiredMessage="Please enter a List Price", min=4000 },
         "AcquisitionDate" = { required=true, requiredMessage="Please enter an Acquisition Date", type="date", typeMessage="Please enter a valid Acquisition Date" },
         "SaleDate" = { type="date", typeMessage="Please enter a valid Sale Date" },
-        "VIN" = { required=true, requiredMessage="Please enter a VIN", unique=true, uniqueMessage="Please enter a unique VIN"},
+        "VIN" = { required=true, requiredMessage="Please enter a VIN", validator="UniqueValidator@cborm", validatorMessage="Please enter a unique VIN"},
         "IsSold" = { required=true, requiredMessage="Specify whether this vehicle is sold or not", type="boolean", typeMessage="Please specify Yes or No for whether this vehicle is sold"}
     };
-    
+
     // methods
     public SimpleCar function init() {
         return this;
     }
-} 
+}

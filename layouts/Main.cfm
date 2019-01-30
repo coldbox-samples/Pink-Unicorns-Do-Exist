@@ -1,5 +1,5 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<html lang="en">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>ColdBox + ORM: Pink Unicorns Do Exist!</title>
@@ -19,14 +19,14 @@
                 text-decoration: none;
             }
             a:hover {
-                color: #CC0001; 
+                color: #CC0001;
                 background-color: inherit;
                 border-bottom:1px dotted #009CFF;
             }
             a.selected{
-                color: #CC0001; 
+                color: #CC0001;
                 background-color: inherit;
-                border-bottom:1px dotted #009CFF;   
+                border-bottom:1px dotted #009CFF;
             }
             #infobox{
                 border:1px solid #CCCCCC;
@@ -34,7 +34,7 @@
                 background-color:#fffff0;
                 margin: 20px auto 10px auto;
                 width: 95%;
-             }  
+             }
              td {
                  padding: 10px;
                  margin: 0;
@@ -84,26 +84,26 @@
                     <div class="col-md-3">
 
                     	<p class="text-center">
-                    		<img src="http://www.ortussolutions.com/__media/coldbox-185-logo.png">
+                    		<img src="https://www.ortussolutions.com/__media/coldbox-185-logo.png">
                     	</p>
 
                     	<br>
 
                         <ul class="list-group">
-                            <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/baseormservice' )#">Base ORM Service</a></li>
-                            <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/activeentity' )#">Active Entity</a></li>
-                            <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/virtualentityservice' )#">Virtual Entity Service</a></li>
-                            <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/concreteservice' )#">Concrete Service</a></li>
-                            <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/populate' )#">Populate()</a></li>
-                            <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/validation' )#">Validation</a></li>
+                            <li class="list-group-item"><a href="#event.buildLink( to='slides/baseormservice' )#">Base ORM Service</a></li>
+                            <li class="list-group-item"><a href="#event.buildLink( to='slides/activeentity' )#">Active Entity</a></li>
+                            <li class="list-group-item"><a href="#event.buildLink( to='slides/virtualentityservice' )#">Virtual Entity Service</a></li>
+                            <li class="list-group-item"><a href="#event.buildLink( to='slides/concreteservice' )#">Concrete Service</a></li>
+                            <li class="list-group-item"><a href="#event.buildLink( to='slides/populate' )#">Populate()</a></li>
+                            <li class="list-group-item"><a href="#event.buildLink( to='slides/validation' )#">Validation</a></li>
                             <li class="list-group-item">
                             	<h3>Criteria Builder</h3>
                                 <ul>
-                                    <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/query_simple' )#">Simple Query</a></li>
-                                    <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/query_projection' )#">Projection</a></li>
-                                    <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/query_alias' )#">Aliases</a></li>
-                                    <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/query_subquery' )#">Subquery</a></li>
-                                    <li class="list-group-item"><a href="#event.buildLink( to='presentation/slides/query_logging' )#">SQL Logging</a></li>
+                                    <li class="list-group-item"><a href="#event.buildLink( to='slides/query_simple' )#">Simple Query</a></li>
+                                    <li class="list-group-item"><a href="#event.buildLink( to='slides/query_projection' )#">Projection</a></li>
+                                    <li class="list-group-item"><a href="#event.buildLink( to='slides/query_alias' )#">Aliases</a></li>
+                                    <li class="list-group-item"><a href="#event.buildLink( to='slides/query_subquery' )#">Subquery</a></li>
+                                    <li class="list-group-item"><a href="#event.buildLink( to='slides/query_logging' )#">SQL Logging</a></li>
                                 </ul>
                             </li>
                         </ul>

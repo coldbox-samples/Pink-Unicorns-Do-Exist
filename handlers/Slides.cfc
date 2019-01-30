@@ -12,7 +12,7 @@ component {
     * Home
     */
     function index( event, rc, prc ) {
-        event.setView( view='presentation/slides/index' );
+        event.setView( view='slides/index' );
     }
 
     /**
@@ -97,7 +97,7 @@ component {
 
         var c = carService.newCriteria();
             c.between( "SaleDate", createODBCDate( "2013-04-01" ), createODBCDate( "2013-07-01" ) );
-        
+
         prc.count = c.count();
 
         var sTime = getTickCount();
