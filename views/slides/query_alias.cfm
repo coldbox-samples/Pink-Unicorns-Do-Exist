@@ -1,47 +1,43 @@
-<div class="panel-group" id="accordion">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#one">
-                    Query by Make
-                </a>
-            </h4>
-        </div>
-        <div id="one" class="panel-collapse collapse">
-            <div class="panel-body">
-<pre>
-var c = CarService.newCriteria();
-...
-c.createAlias( "Make", "make", c.LEFT_JOIN )
- .isEq( "make.LongName", "Ford" )
- .list()
-</pre>
-<cfdump var="#prc.make#" expand="true">
-            </div>
-        </div>
-    </div>
-</div>
-<div class="panel-group" id="accordion">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#accordion" href="#two">
-                    Query by Sales Person
-                </a>
-            </h4>
-        </div>
-        <div id="two" class="panel-collapse collapse">
-            <div class="panel-body">
-<pre>
-var c = CarService.newCriteria();
-...
-c.createAlias( "SalesPeople", "staff" )
- .createAlias( "staff.Position", "position" )
- .isEq( "position.LongName", "General Manager" )
- .list();
-</pre>
-<cfdump var="#prc.salespeople#" expand="true">
-            </div>
-        </div>
-    </div>
+<div class="accordion" id="accordion">
+	<div class="card border-0 shadow mb-4">
+		<a href="#collapse1" class=" card-header border-0 py-3" data-toggle="collapse"
+				role="button" aria-expanded="false" aria-controls="collapse1" data-target="#collapse1">
+			<h6 class="m-0 font-weight-bold text-primary">
+				Query by Make
+			</h6>
+		</a>
+		<div class="collapse" id="collapse1" data-parent="#accordion">
+			<div class="card-body">
+				<div class="div-pre col-12">
+					var c = CarService.newCriteria();<br>
+					...<br>
+					c.createAlias( "Make", "make", c.LEFT_JOIN )<br>
+					 .isEq( "make.LongName", "Ford" )<br>
+					 .list()
+				</div>
+				<cfdump var="#prc.make#" expand="true">
+			</div>
+		</div>
+	</div>
+	<div class="card border-0 shadow mb-4">
+		<a href="#collapse2" class=" card-header border-0 py-3" data-toggle="collapse"
+				role="button" aria-expanded="false" aria-controls="collapse2" data-target="#collapse2">
+			<h6 class="m-0 font-weight-bold text-primary">
+				Query by Sales Person
+			</h6>
+		</a>
+		<div class="collapse" id="collapse2" data-parent="#accordion">
+			<div class="card-body">
+				<div class="div-pre col-12">
+					var c = CarService.newCriteria();<br>
+					...<br>
+					c.createAlias( "SalesPeople", "staff" )<br>
+					 .createAlias( "staff.Position", "position" )<br>
+					 .isEq( "position.LongName", "General Manager" )<br>
+					 .list();
+				</div>
+				<cfdump var="#prc.salespeople#" expand="true">
+			</div>
+		</div>
+	</div>
 </div>
