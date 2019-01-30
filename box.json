@@ -9,7 +9,7 @@
     },
     "bugs":"https://github.com/coldbox-samples/Pink-Unicorns-Do-Exist/issues",
     "slug":"cartracker-demo",
-    "shortDescription":"An awesome demo of the CodlBox ORM Services in action",
+    "shortDescription":"An awesome demo of the ColdBox ORM Services in action",
     "type":"Demos",
     "license":[
         {
