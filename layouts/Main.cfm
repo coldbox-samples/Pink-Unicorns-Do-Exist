@@ -12,18 +12,14 @@
   <title>ColdBox + ORM: Pink Unicorns Do Exist!</title>
 
    <!-- Bootstrap core CSS-->
-   <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <script src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js'></script>
    <link href="//netdna.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet">
    <script src="//netdna.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 	<cfoutput>
-   <!-- Custom fonts for this template-->
-		<link href="#event.getHTMLBaseURL()#/includes/template/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-
-		<!-- Page level plugin CSS-->
-		<link href="#event.getHTMLBaseURL()#includes/template/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-
 		<!-- Custom styles for this template-->
-		<link href="#event.getHTMLBaseURL()#includes/template/css/sb-admin-2.css" rel="stylesheet">
+		<link href="#event.getHTMLBaseURL()#includes/template/css/sb-admin-2.min.css" rel="stylesheet">
 		<link href="#event.getHTMLBaseURL()#includes/template/css/Unicorns.css" rel="stylesheet">
 	</cfoutput>
 </head>
@@ -160,32 +156,10 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <!-- Logout Modal-->
-  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-          <a class="btn btn-primary" href="login.html">Logout</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bootstrap core JavaScript-->
 <cfoutput>
-  <!-- Core plugin JavaScript-->
-  <script src="#event.getHTMLBaseURL()#includes/template/vendor/jquery-easing/jquery.easing.min.js"></script>
-
   <!-- Custom scripts for all pages-->
-  <script src="#event.getHTMLBaseURL()#includes/template/js/sb-admin-2.js"></script>
+  <script src="#event.getHTMLBaseURL()#includes/template/js/sb-admin-2.min.js"></script>
+
 </cfoutput>
   <!-- Page level plugins -->
 
