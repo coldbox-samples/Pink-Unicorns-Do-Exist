@@ -10,13 +10,13 @@ component extends="tests.resources.BaseTest"{
 			describe( "Car", function(){
 
 				it( "can be created", function(){
-					var staff = entityNew( "Car" );
-					expect(	staff ).toBeComponent();
+					var car = entityNew( "Car" );
+					expect(	car ).toBeComponent();
 				} );
 
 				it( "can load a car", function(){
-					var staff = entityLoad( "Car", { CarID = 1 }, true );
-					expect(	staff ).notToBeNull();
+					var car = entityLoad( "Car", { CarID = 14 }, true );
+					expect(	car ).notToBeNull();
 				} );
 
 			});

@@ -10,13 +10,13 @@ component extends="tests.resources.BaseTest"{
 			describe( "Image", function(){
 
 				it( "can be created", function(){
-					var staff = entityNew( "Image" );
-					expect(	staff ).toBeComponent();
+					var image = entityNew( "Image" );
+					expect(	image ).toBeComponent();
 				} );
 
 				it( "can load a image", function(){
-					var staff = entityLoad( "Image", { ImageID = 1 }, true );
-					expect(	staff ).notToBeNull();
+					var image = entityLoad( "Image", { ImageID = 67 }, true );
+					expect(	image ).notToBeNull();
 				} );
 
 			});

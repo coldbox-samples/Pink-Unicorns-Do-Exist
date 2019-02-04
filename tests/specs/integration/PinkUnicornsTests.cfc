@@ -29,7 +29,7 @@ component extends="tests.resources.BaseTest"{
 			story( "I need to find a specific car", function(){
 				when( "I give a valid Car ID", function(){
 					then( "I should get a single car", function(){
-						getRequestContext().setValue( "carID", "2");
+						getRequestContext().setValue( "carID", "14");
 						var e = get( "/slides/baseORMService" );
 						var prc = e.getPrivateCollection();
 						expect( prc.myCar ).notToBeNull();
@@ -59,7 +59,7 @@ component extends="tests.resources.BaseTest"{
 			story( "I need to find a specific active car", function(){
 				when( "I give a valid Car ID", function(){
 					then( "I should get a single active car", function(){
-						getRequestContext().setValue( "carID", "1");
+						getRequestContext().setValue( "carID", "14");
 						var e = get( "/slides/activeEntity" );
 						var prc = e.getPrivateCollection();
 						expect( prc.myCar ).notToBeNull();
@@ -89,7 +89,7 @@ component extends="tests.resources.BaseTest"{
 			story( "I need to find a specific virtual service", function(){
 				when( "I give a valid Car ID", function(){
 					then( "I should get a single virtual service", function(){
-						getRequestContext().setValue( "carID", "1");
+						getRequestContext().setValue( "carID", "14");
 						var e = get( "/slides/virtualEntityService" );
 						var prc = e.getPrivateCollection();
 						expect( prc.myCar ).notToBeNull();
