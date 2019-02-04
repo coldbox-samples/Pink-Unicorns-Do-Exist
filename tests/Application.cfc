@@ -26,7 +26,8 @@ component{
             port        = "3306",
             driver      = "MySQL5",
             username    = "root",
-            password    = "mysql",
+			// password    = "mysql",
+			password    = "",
             // Lucee Configs
 			class		= 'org.gjt.mm.mysql.Driver',
 			connectionString = 'jdbc:mysql://localhost:3306/CarTracker?useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=true'
