@@ -1,9 +1,0 @@
-// Area Chart
-.chart-area {
-  position: relative;
-  height: 10rem;
-  width: 100%;
-  @include media-breakpoint-up(md) {
-    height: 20rem;
-  }
-}
