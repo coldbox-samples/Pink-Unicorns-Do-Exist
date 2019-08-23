@@ -19,41 +19,79 @@ component {
     * Base ORM service
     */
     function baseORMService( event, rc, prc ) {
-        prc.pageTitle 	= "Base ORM Service";
-        prc.newCar 		= ORMService.new( entityName='SimpleCar', properties={ Year = 2012, ListPrice = 22000});
-        prc.myCar 		= ORMService.findWhere( entityName='SimpleCar', criteria={ CarID = 12 } );
-        prc.cars 		= ORMService.list( entityName="SimpleCar", max=3, asQuery=false );
+		//params
+		event.paramValue( name = "carID", value = "12" )
+			 .paramValue( name = "max", value = "3" );
+
+		prc.pageTitle 	= "Base ORM Service";
+
+		//Create new car
+		prc.newCar 		= ORMService.new( entityName = 'SimpleCar', properties = { Year = 2012, ListPrice = 22000 } );
+
+		//Find a specific car
+		prc.myCar 		= ORMService.findWhere( entityName = 'SimpleCar', criteria = { CarID = rc.carID } );
+
+		//Get a list of cars
+        prc.cars 		= ORMService.list( entityName = "SimpleCar", max = rc.max , asQuery = false );
     }
 
     /**
     * Active Entity
     */
     function activeEntity( event, rc, prc ) {
-        prc.pageTitle 	= "Active Entity";
+		//params
+		event.paramValue( name = "carID", value = "12" )
+			 .paramValue( name = "max", value = "3" );
+
+		prc.pageTitle 	= "Active Entity";
+
+		//Create new Active car
         var car 		= entityNew( "ActiveCar" );
-        prc.newCar 		= car.new( properties={Year= 2012, ListPrice= 22000});
-        prc.myCar 		= car.findWhere( criteria={ CarID = 12 } );
-        prc.cars 		= car.list( max=3, asQuery=false );
+		prc.newCar 		= car.new( properties = { Year = 2012, ListPrice = 22000 } );
+
+		//Find a specific cars
+		prc.myCar 		= car.findWhere( criteria = { CarID = rc.carID } );
+
+		//Get list of Active cars
+        prc.cars 		= car.list( max = rc.max, asQuery = false );
     }
 
     /**
     * Virtual Entity Service
     */
     function virtualEntityService( event, rc, prc ) {
-        prc.pageTitle 	= "Virtual Entity Service";
-        prc.newCar 		= VirtualcarService.new( properties={Year= 2012, ListPrice= 22000});
-        prc.myCar 		= VirtualcarService.findWhere( criteria={ CarID = 12 } );
-        prc.cars 		= VirtualcarService.list( max=3, asQuery=false );
+		//params
+		event.paramValue( name = "carID", value = "12" )
+			 .paramValue( name = "max", value = "3" );
+
+		prc.pageTitle 	= "Virtual Entity Service";
+
+		//Create new virtual service
+		prc.newCar 		= VirtualcarService.new( properties = { Year = 2012, ListPrice = 22000} );
+
+		//Find a specific car
+		prc.myCar 		= VirtualcarService.findWhere( criteria = { CarID = rc.carID } );
+
+		//Get list of virtual service
+        prc.cars 		= VirtualcarService.list( max = rc.max, asQuery = false );
     }
 
     /**
     * Concrete ORM service
     */
     function concreteService( event, rc, prc ) {
-        prc.pageTitle 	= "Concrete Service";
-        prc.newCar 		= carService.new( properties={Year= 2012, ListPrice= 22000});
-        prc.myCar 		= carService.findWhere( criteria={ CarID = 12 } );
-        prc.cars 		= carService.list( max=3, asQuery=false );
+		event.paramValue( name = "carID", value = "12" )
+			 .paramValue( name = "max", value = "3" );
+		prc.pageTitle 	= "Concrete Service";
+		
+		//create new car
+		prc.newCar 		= carService.new( properties = { Year = 2012, ListPrice = 22000 });
+		
+		//find specific car
+		prc.myCar 		= carService.findWhere( criteria = { CarID = rc.carID } );
+		
+		//Get list of cars
+        prc.cars 		= carService.list( max = rc.max, asQuery = false );
         prc.newCars 	= carService.getNewCars();
     }
 
