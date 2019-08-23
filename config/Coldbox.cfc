@@ -8,7 +8,7 @@ component{
 			//Application Setup
 			appName 				= "Pink Unicorns Do Exist",
 			reinitPassword			= "",
-			handlersIndexAutoReload = true,
+			handlersIndexAutoReload = false,
 
 			//Implicit Events
 			defaultEvent			= "slides.index",
@@ -25,9 +25,10 @@ component{
 			invalidEventHandler		= "",
 			customErrorTemplate		= "",
 
-			//Application Aspects
+			// Application Aspects
 			handlerCaching 			= false,
-			eventCaching			= false
+			eventCaching			= false,
+			autoMapModels 			= true
 		};
 
 		// environment settings, create a detectEnvironment() method to detect it yourself.
@@ -37,25 +38,40 @@ component{
 			development = "^127\.,^localhost"
 		};
 
-		// Layout Settings
-		layoutSettings = {
-			defaultLayout = "Main.cfm"
-		};
-
-		orm = {
-			injection = {
-				// enable entity injection
-				enabled = true,
-				// a list of entity names to include in the injections
-				include = "",
-				// a list of entity names to exclude from injection
-				exclude = ""
-			}
-		};
-
 		// Register interceptors as an array, we need order
 		interceptors = [
 		];
+
+		//LogBox DSL
+		logBox = {
+			// Define Appenders
+			appenders = {
+				files={
+					class="coldbox.system.logging.appenders.RollingFileAppender",
+					properties = {
+						filename = "unicorns", filePath="/#appMapping#/logs"
+					}
+				},
+				console = {
+					class="coldbox.system.logging.appenders.ConsoleAppender"
+				}
+			},
+			// Root Logger
+			root = { levelmax="DEBUG", appenders="*" },
+			// Implicit Level Categories
+			info = [ "coldbox.system" ]
+			//debug = [ "cborm.*" ]
+		};
+
+		moduleSettings = {
+			cborm = {
+				injection = {
+					enabled = true,
+					include = "",
+					exclude = ""
+				}
+			}
+		};
 
 	}
 
@@ -63,7 +79,10 @@ component{
 	* Development
 	*/
 	function development(){
-		coldbox.customErrorTemplate = "/coldbox/system/includes/BugReport.cfm";
+		coldbox.handlerCaching 				= true;
+		coldbox.handlersIndexAutoReload 	= true;
+		coldbox.reinitPassword				= "";
+		coldbox.customErrorTemplate 		= "/coldbox/system/includes/BugReport.cfm";
 	}
 
 }

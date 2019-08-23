@@ -9,7 +9,7 @@
     },
     "bugs":"https://github.com/coldbox-samples/Pink-Unicorns-Do-Exist/issues",
     "slug":"cartracker-demo",
-    "shortDescription":"An awesome demo of the ColdBox ORM Services in action",
+    "shortDescription":"An awesome demo of the ColdBox cborm module in action",
     "type":"Demos",
     "license":[
         {
@@ -19,21 +19,19 @@
     ],
     "contributors":[
         "Joel Watson <existdissolve@gmail.com>",
-        " Javier Quintero <jquintero@ortussolutions.com>"
+        "Javier Quintero <jquintero@ortussolutions.com>"
     ],
     "dependencies":{
         "coldbox":"^5.0.0",
-        "cborm":"^1.0.3",
-        "mementifier":"^1.3.0+24"
+        "cborm":"^2.0.0"
     },
     "devDependencies":{
-        "testbox":"^2.8.0+191"
+        "testbox":"^3.0.0"
     },
     "installPaths":{
         "coldbox":"coldbox/",
         "cborm":"modules/cborm/",
-        "testbox":"testbox/",
-        "mementifier":"modules/mementifier/"
+        "testbox":"testbox/"
     },
     "ignore":[],
     "testbox":{
