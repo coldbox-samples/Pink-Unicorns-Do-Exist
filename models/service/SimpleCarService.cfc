@@ -12,8 +12,8 @@ component extends="cborm.models.VirtualEntityService" singleton {
     }
 
     public function getNewCars() {
-        var c = newCriteria();
-            c.isGT( "Year", c.convertValueToJavaType( "Year", 2012 ) );
-        return c.list( max=3, asQuery = false );
+        return newCriteria()
+            .isGT( "Year", autoCast( "Year", 2012 ) )
+        	.list( max=3 );
     }
 }

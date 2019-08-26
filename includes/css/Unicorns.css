@@ -26,6 +26,8 @@ a:hover{
 	border: 1px solid rgba(0,0,0,.125);
 	padding: 5px;
 	margin-bottom: 10px;
+	font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+	font-size:12px;
 }
 *::-webkit-scrollbar {
     width: 2px;
@@ -66,4 +68,10 @@ a:hover{
 }
 .z-index-1001{
 	z-index:1001;
+}
+
+/** Custom Syntax Highlighting **/
+.highlight {
+	font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+	font-size:14px;
 }

@@ -1,16 +1,17 @@
 <div class="accordion" id="accordion">
 	<div class="card border-0 shadow mb-4">
-		<a href="#collapse1" class=" card-header border-0 py-3" data-toggle="collapse"
+		<a href="#collapse1" class="card-header border-0 py-3" data-toggle="collapse"
 				role="button" aria-expanded="false" aria-controls="collapse1" data-target="#collapse1">
 			<h6 class="m-0 font-weight-bold text-primary">
 				Inject Virtual Entity Service
 			</h6>
 		</a>
-		<div class="collapse" id="collapse1" data-parent="#accordion">
+		<div class="collapse show" id="collapse1" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
-					property name="virtualCarService" inject="entityService:SimpleCar";<br>
-					...
+				<div class="col-12">
+					<pre>
+					property name="virtualCarService" inject="entityService:SimpleCar";
+					</pre>
 				</div>
 			</div>
 		</div>
@@ -24,10 +25,12 @@
 		</a>
 		<div class="collapse" id="collapse2" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
+				<div class="col-12">
+					<pre>
 					var newCar = virtualCarService.new( properties={Year: 2012, ListPrice: 22000});
+					</pre>
 				</div>
-				<cfdump var="#prc.newcar#" expand="true">
+				<cfdump var="#prc.newcar.getMemento()#" expand="true">
 			</div>
 		</div>
 	</div>
@@ -40,10 +43,12 @@
 		</a>
 		<div class="collapse" id="collapse3" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
+				<div class="col-12">
+					<pre>
 					var foundCar = virtualCarService.findWhere( criteria={ CarID = 12 } );
+					</pre>
 				</div>
-				<cfdump var="#prc.mycar#" expand="true">
+				<cfdump var="#prc.mycar.getMemento()#" expand="true">
 			</div>
 		</div>
 	</div>
@@ -56,8 +61,10 @@
 		</a>
 		<div class="collapse" id="collapse4" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
+				<div class="col-12">
+					<pre>
 					var carList = virtualCarService.list( max=3, asQuery=false );
+					</pre>
 				</div>
 				<cfdump var="#prc.cars#" expand="true">
 			</div>

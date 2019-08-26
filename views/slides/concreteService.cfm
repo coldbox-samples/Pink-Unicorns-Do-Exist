@@ -6,11 +6,12 @@
 				Inject Concrete Service
 			</h6>
 		</a>
-		<div class="collapse" id="collapse1" data-parent="#accordion">
+		<div class="collapse show" id="collapse1" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
-					property name="carService" inject="id:SimpleCarService";<br>
-					...
+				<div class="col-12">
+					<pre>
+					property name="carService" inject="id:SimpleCarService";
+					</pre>
 				</div>
 			</div>
 		</div>
@@ -24,10 +25,12 @@
 		</a>
 		<div class="collapse" id="collapse2" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
+				<div class="col-12">
+					<pre>
 					var newCar = carService.new( properties={Year: 2012, ListPrice: 22000});
+					</pre>
 				</div>
-				<cfdump var="#prc.newcar#" expand="true">
+				<cfdump var="#prc.newcar.getMemento()#" expand="true">
 			</div>
 		</div>
 	</div>
@@ -40,10 +43,12 @@
 		</a>
 		<div class="collapse" id="collapse3" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
+				<div class="col-12">
+					<pre>
 					var foundCar = carService.findWhere( criteria={ CarID = 12 } );
+				</pre>
 				</div>
-				<cfdump var="#prc.mycar#" expand="true">
+				<cfdump var="#prc.mycar.getMemento()#" expand="true">
 			</div>
 		</div>
 	</div>
@@ -56,8 +61,10 @@
 		</a>
 		<div class="collapse" id="collapse4" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
+				<div class="col-12">
+					<pre>
 					var carList = carService.list( max=3, asQuery=false );
+				</pre>
 				</div>
 				<cfdump var="#prc.cars#" expand="true">
 			</div>
@@ -72,14 +79,16 @@
 		</a>
 		<div class="collapse" id="collapse5" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
-					var newCars = carService.getNewCars();<br>
-					...<br>
-					public function getNewCars() {<br>
-						var c = newCriteria();<br>
-							c.isGT( "Year", c.convertValueToJavaType( "Year", 2012 ) );<br>
-						return c.list( max=3, asQuery = false );<br>
-					}
+				<div class="col-12">
+<pre>
+var newCars = carService.getNewCars();<br>
+
+public function getNewCars() {
+	return newCriteria()
+		.isGT( "Year", autoCast( "Year", 2012 ) )
+		.list( max=3 );
+}
+</pre>
 				</div>
 				<cfdump var="#prc.newcars#" expand="true">
 			</div>

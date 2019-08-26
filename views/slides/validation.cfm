@@ -5,44 +5,51 @@
 		</h6>
 	</div>
 	<div class="card-body">
-		<div class="div-pre">
-			this.constraints = {<br>
-				&nbsp "Year" = { <br>
-					&nbsp &nbsp required=true, <br>
-					&nbsp &nbsp requiredMessage="Please enter a Year" <br>
-				&nbsp },<br>
-				&nbsp "ListPrice" = { <br>
-					&nbsp &nbsp required=true, <br>
-					&nbsp &nbsp requiredMessage="Please enter a List Price", min=4000 <br>
-				&nbsp },<br>
-				&nbsp "AcquisitionDate" = { <br>
-					&nbsp &nbsp required=true, <br>
-					&nbsp &nbsp requiredMessage="Please enter an Acquisition Date", <br>
-					&nbsp &nbsp type="date", <br>
-					&nbsp &nbsp typeMessage="Please enter a valid Acquisition Date" <br>
-				&nbsp },<br>
-				&nbsp "SaleDate" = { <br>
-					&nbsp &nbsp type="date", <br>
-					&nbsp &nbsp typeMessage="Please enter a valid Sale Date" <br>
-				&nbsp },<br>
-				&nbsp "VIN" = { <br>
-					&nbsp &nbsp required=true, <br>
-					&nbsp &nbsp requiredMessage="Please enter a VIN", <br>
-					&nbsp &nbsp unique=true, <br>
-					&nbsp &nbsp uniqueMessage="Please enter a unique VIN"<br>
-				&nbsp },<br>
-				&nbsp "IsSold" = { <br>
-					&nbsp &nbsp required=true, <br>
-					&nbsp &nbsp requiredMessage="Specify whether this vehicle is sold or not", <br>
-					&nbsp &nbsp type="boolean", <br>
-					&nbsp &nbsp typeMessage="Please specify Yes or No for whether this vehicle is sold"<br>
-				&nbsp }<br>
-			};<br>
-			...<br>
-			var myCar = CarService.new();<br>
-			...<br>
-			var results = validateModel( myCar );
-		</div>
+<pre fileName="SimpleCar.cfc">
+this.constraints = {
+	"Year" = {
+		required=true,
+		requiredMessage="Please enter a Year"
+	},
+	"ListPrice" = {
+		required=true,
+		requiredMessage="Please enter a List Price",
+		min=4000
+	},
+	"AcquisitionDate" = {
+		required=true,
+		requiredMessage="Please enter an Acquisition Date",
+		type="date",
+		typeMessage="Please enter a valid Acquisition Date"
+	},
+	"SaleDate" = {
+		type="date",
+		typeMessage="Please enter a valid Sale Date"
+	},
+	"VIN" = {
+		required=true,
+		requiredMessage="Please enter a VIN",
+		validator="UniqueValidator@cborm",
+		validatorMessage="Please enter a unique VIN"
+	},
+	"IsSold" = {
+		required=true,
+		requiredMessage="Specify whether this vehicle is sold or not",
+		type="boolean",
+		typeMessage="Please specify Yes or No for whether this vehicle is sold"
+	}
+};
+</pre>
+
+<pre fileName="handler.cfc">
+prc.newCar 		= carService.new( {
+	Year = 2012,
+	AcquisitionDate = "Henry",
+	VIN = "VIN123-GJH-1923",
+	ListPrice = 3500
+} );
+prc.validationResults = validateModel( prc.newCar );
+</pre>
 		<cfoutput>
 			<table class="table-bordered table-striped">
 				<tr>
@@ -64,7 +71,6 @@
 			</table>
 			<br /><br />
 		</cfoutput>
-		<cfdump var="#prc.validationResults#" expand="true">
 	</div>
 </div>
 

@@ -1,23 +1,37 @@
 /**
-* Handler for Cars
-*/
+ * Handler for Cars
+ */
 component {
 
-	// DI
-    property name="ORMService"          inject="entityService";
-    property name="VirtualCarService"   inject="entityService:SimpleCar";
-    property name="carService"          inject="id:SimpleCarService";
+	// Inject a base ORM service
+	property name="ORMService"          inject="entityService";
+	// Inject a virtual service
+	property name="VirtualCarService"   inject="entityService:SimpleCar";
+	// Inject a concrete service from the `models` folder
+	property name="carService"          inject="id:SimpleCarService";
+
+	// Syntax Highlight Utility
+	property name="cbCodeFormat"		inject="@cbCodeFormat";
+
+	/**
+	* Executes before all handler actions
+	*/
+	any function preHandler( event, rc, prc, action, eventArguments ){
+		prc.formatter = variables.cbCodeFormat;
+		// Load cbCodeFormat assets + theme
+		addAsset( prc.formatter.getCSSAssets() );
+	}
 
     /**
-    * Home
-    */
+     * Home
+     */
     function index( event, rc, prc ) {
-        event.setView( view='slides/index' );
+        event.setView( "slides/index" );
     }
 
     /**
-    * Base ORM service
-    */
+     * Base ORM service
+     */
     function baseORMService( event, rc, prc ) {
 		//params
 		event.paramValue( name = "carID", value = "12" )
@@ -32,7 +46,16 @@ component {
 		prc.myCar 		= ORMService.findWhere( entityName = 'SimpleCar', criteria = { CarID = rc.carID } );
 
 		//Get a list of cars
-        prc.cars 		= ORMService.list( entityName = "SimpleCar", max = rc.max , asQuery = false );
+		prc.cars 		= ORMService
+			.list(
+				entityName 	= "SimpleCar",
+				max			= rc.max,
+				asQuery 	= false
+			)
+			// Map it to the memento, so we can see it nicely.
+			.map( function( item ){
+				return item.getMemento();
+			} );
     }
 
     /**
@@ -53,12 +76,17 @@ component {
 		prc.myCar 		= car.findWhere( criteria = { CarID = rc.carID } );
 
 		//Get list of Active cars
-        prc.cars 		= car.list( max = rc.max, asQuery = false );
+		prc.cars 		= car
+			.list( max = rc.max, asQuery = false )
+			// Map it to the memento, so we can see it nicely.
+			.map( function( item ){
+				return item.getMemento();
+			} );
     }
 
     /**
-    * Virtual Entity Service
-    */
+     * Virtual Entity Service
+     */
     function virtualEntityService( event, rc, prc ) {
 		//params
 		event.paramValue( name = "carID", value = "12" )
@@ -73,7 +101,12 @@ component {
 		prc.myCar 		= VirtualcarService.findWhere( criteria = { CarID = rc.carID } );
 
 		//Get list of virtual service
-        prc.cars 		= VirtualcarService.list( max = rc.max, asQuery = false );
+		prc.cars 		= VirtualcarService
+			.list( max = rc.max, asQuery = false )
+			// Map it to the memento, so we can see it nicely.
+			.map( function( item ){
+				return item.getMemento();
+			} );
     }
 
     /**
@@ -82,39 +115,35 @@ component {
     function concreteService( event, rc, prc ) {
 		event.paramValue( name = "carID", value = "12" )
 			 .paramValue( name = "max", value = "3" );
+
 		prc.pageTitle 	= "Concrete Service";
-		
+
 		//create new car
 		prc.newCar 		= carService.new( properties = { Year = 2012, ListPrice = 22000 });
-		
+
 		//find specific car
 		prc.myCar 		= carService.findWhere( criteria = { CarID = rc.carID } );
-		
+
 		//Get list of cars
-        prc.cars 		= carService.list( max = rc.max, asQuery = false );
-        prc.newCars 	= carService.getNewCars();
-    }
+		prc.cars 		= carService
+			.list( max = rc.max, asQuery = false )
+			// Map it to the memento, so we can see it nicely.
+			.map( function( item ){
+				return item.getMemento();
+			} );
+		prc.newCars 	= carService
+			.getNewCars()
+			// Map it to the memento, so we can see it nicely.
+			.map( function( item ){
+				return item.getMemento();
+			} );
+	}
 
-    /**
-    * Validation
-    */
-    function validation( event, rc, prc ) {
-        prc.pageTitle 	= "Entity Validation";
-        prc.newCar 		= carService.new( properties={
-            Year = 2012,
-            AcquisitionDate = "Henry",
-            VIN = "VIN123-GJH-1923",
-            ListPrice = 3500
-        });
-        prc.validationResults = validateModel( target=prc.newCar );
-    }
-
-    /**
+	/**
     * Population
     */
     function populate( event, rc, prc ) {
         prc.pageTitle = "Populate()";
-        var newCar = carService.new();
         var fakeForm = {
             Year = 2012,
             AcquisitionDate = "2013-12-15",
@@ -124,12 +153,31 @@ component {
             Model = 14,
             Color = 9
         };
-        prc.newCar = carService.populate( target=newCar, memento=fakeform, composeRelationships=true );
+		prc.newCar = carService
+			.populate(
+				target=carService.new(),
+				memento=fakeform,
+				composeRelationships=true
+			);
     }
 
     /**
-    * Criteria queries simple
-    */
+     * Validation
+     */
+    function validation( event, rc, prc ) {
+        prc.pageTitle 	= "Entity Validation";
+        prc.newCar 		= carService.new( {
+            Year = 2012,
+            AcquisitionDate = "Henry",
+            VIN = "VIN123-GJH-1923",
+            ListPrice = 3500
+        } );
+        prc.validationResults = validateModel( prc.newCar );
+    }
+
+    /**
+     * Criteria queries simple
+     */
     function query_simple( event, rc, prc ) {
         prc.pageTitle = "Criteria Builder - Simple Query";
 

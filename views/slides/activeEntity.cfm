@@ -6,15 +6,19 @@
 				Setup Active Entity
 			</h6>
 		</a>
-		<div class="collapse" id="collapse1" data-parent="#accordion">
+		<div class="collapse show" id="collapse1" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
-					extends="cborm.models.ActiveEntity"<br>
-					...<br>
-					public ActiveCar function init() {<br>
-						super.init();<br>
-						return this;<br>
-					}
+				<div class="col-12">
+<pre fileName="ActiveCar.cfc">
+component extends="cborm.models.ActiveEntity"{
+
+	public ActiveCar function init() {
+		super.init();
+		return this;
+	}
+
+}
+</pre>
 				</div>
 			</div>
 		</div>
@@ -28,11 +32,13 @@
 		</a>
 		<div class="collapse" id="collapse2" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
-					var car = entityNew( "ActiveCar" );<br>
-					prc.newCar = car.new( properties={ Year= 2012, ListPrice= 22000 });
+				<div class="col-12">
+<pre>
+var car = entityNew( "ActiveCar" );<br>
+prc.newCar = car.new( properties={ Year= 2012, ListPrice= 22000 });
+</pre>
 				</div>
-				<cfdump var="#prc.newcar#" expand="true">
+				<cfdump var="#prc.newcar.getMemento()#" expand="true">
 			</div>
 		</div>
 	</div>
@@ -45,11 +51,13 @@
 		</a>
 		<div class="collapse" id="collapse3" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
-					var car = entityNew( "ActiveCar" );<br>
-					prc.myCar = car.findWhere( criteria={ CarID = 12 } );
+				<div class="col-12">
+<pre>
+var car = entityNew( "ActiveCar" );<br>
+prc.myCar = car.findWhere( criteria={ CarID = 12 } );
+</pre>
 				</div>
-				<cfdump var="#prc.mycar#" expand="true">
+				<cfdump var="#prc.mycar.getMemento()#" expand="true">
 			</div>
 		</div>
 	</div>
@@ -62,9 +70,11 @@
 		</a>
 		<div class="collapse" id="collapse4" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
-					var car = entityNew( "ActiveCar" );<br>
-					prc.cars = car.list( max=3, asQuery=false );
+				<div class="col-12">
+<pre>
+var car = entityNew( "ActiveCar" );<br>
+prc.cars = car.list( max=3, asQuery=false );
+</pre>
 				</div>
 				<cfdump var="#prc.cars#" expand="true">
 			</div>

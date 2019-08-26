@@ -8,7 +8,6 @@ component{
 			//Application Setup
 			appName 				= "Pink Unicorns Do Exist",
 			reinitPassword			= "",
-			handlersIndexAutoReload = false,
 
 			//Implicit Events
 			defaultEvent			= "slides.index",
@@ -79,7 +78,6 @@ component{
 	* Development
 	*/
 	function development(){
-		coldbox.handlerCaching 				= true;
 		coldbox.handlersIndexAutoReload 	= true;
 		coldbox.reinitPassword				= "";
 		coldbox.customErrorTemplate 		= "/coldbox/system/includes/BugReport.cfm";
