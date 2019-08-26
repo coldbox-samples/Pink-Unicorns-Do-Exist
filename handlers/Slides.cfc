@@ -181,18 +181,17 @@ component {
     function query_simple( event, rc, prc ) {
         prc.pageTitle = "Criteria Builder - Simple Query";
 
-        var c = carService.newCriteria();
+		var c = carService.newCriteria();
             c.between( "SaleDate", createODBCDate( "2013-04-01" ), createODBCDate( "2013-07-01" ) );
 
         prc.count = c.count();
 
-        var sTime = getTickCount();
-        prc.results = c.list();
-        prc.resultsTime = getTickCount() - sTime;
-
-		var sTime = getTickCount();
-        prc.flatResults = c.resultTransformer( c.ALIAS_TO_ENTITY_MAP ).list();
-        prc.flatResultsTime = getTickCount() - sTime;
+		prc.results = c.list()
+			// Map it to the memento, so we can see it nicely.
+			.map( function( item ){
+				return item.getMemento();
+			} );
+        prc.streamResults = c.asStream().list();
     }
 
     /**
@@ -200,52 +199,70 @@ component {
     */
     function query_projection( event, rc, prc ) {
         prc.pageTitle = "Criteria Builder - Projection";
-        var c = carService.newCriteria();
+
         // average sale price for all vehicles
-        prc.avg = c.isTrue( "IsSold" ).withProjections( avg="SalePrice" ).list();
+		var c = carService.newCriteria();
+        prc.avg = c.isTrue( "IsSold" ).withProjections( avg="SalePrice" ).get();
+
+		// total sum of sales for all vehicles
         var c = carService.newCriteria();
-        // total sum of sales for all vehicles
-        prc.sum = c.isTrue( "IsSold" ).withProjections( sum="SalePrice" ).list();
+        prc.sum = c.isTrue( "IsSold" ).withProjections( sum="SalePrice" ).get();
+
+		// avg and sum with aliases
         var c = carService.newCriteria();
-        // avg and sum
         prc.total = c.isTrue( "IsSold" )
 			.withProjections(
-				sum="SalePrice",
-				avg="SalePrice"
+				sum="SalePrice:salesTotal",
+				avg="SalePrice:salesAvg"
 			)
+			.asStruct()
 			.list();
-        var c = carService.newCriteria();
-        // limit properties returned
+
+		// limit properties returned
+		var c = carService.newCriteria();
         prc.properties = c.isTrue( "IsSold" )
          	.withProjections(
             	property="Year,Description,SaleDate,AcquisitionDate,SalePrice,ListPrice"
          	)
-         	.list();
+			 .list();
+
         // tranform results
         var c = carService.newCriteria();
         prc.transformed = c.isTrue( "IsSold" )
          	.withProjections(
             	property="Year,Description,SaleDate,AcquisitionDate,SalePrice,ListPrice"
          	)
-         	.resultTransformer( c.ALIAS_TO_ENTITY_MAP )
+         	.asStruct()
          	.list();
     }
 
     /**
-    * Criteria queries aliases
+    * Criteria queries joins
     */
-    function query_alias( event, rc, prc ) {
+    function query_joins( event, rc, prc ) {
         prc.pageTitle = "Criteria Builder - Projection";
-        var c = carService.newCriteria();
-        // left join
-        prc.make = c.createAlias( "Make", "make", c.LEFT_JOIN )
-          .isEq( "make.LongName", "Ford" ).list();
 
+		// left join
         var c = carService.newCriteria();
-        // nested alias
-        prc.salespeople = c.createAlias( "SalesPeople", "staff" )
-          .createAlias( "staff.Position", "position" )
-          .isEq( "position.LongName", "General Manager" ).list();
+        prc.makes = c.joinTo( "Make", "make", c.LEFT_JOIN )
+			.isEq( "make.LongName", "Ford" )
+			.list()
+		  	// Map it to the memento, so we can see it nicely.
+			.map( function( item ){
+				return item.getMemento();
+			} );
+
+		// nested alias
+		var c = carService.newCriteria();
+		prc.salespeople = c
+			.joinTo( "SalesPeople", "staff" )
+				.joinTo( "staff.Position", "position" )
+					.isEq( "position.LongName", "General Manager" )
+			.list()
+			// Map it to the memento, so we can see it nicely.
+			.map( function( item ){
+				return item.getMemento();
+			} );
     }
 
     /**
@@ -254,19 +271,23 @@ component {
     function query_subquery( event, rc, prc ) {
         prc.pageTitle = "Criteria Builder - Subquery";
         var c = carService.newCriteria();
-        // add subquery
-        c.add(
-          c.createSubcriteria( "Car", "carstaff" )
-            // the property in the subquery to use
-            .withProjections( property="CarID" )
-            .createAlias( "carstaff.SalesPeople", "staff" )
-            .createAlias( "staff.Position", "position" )
-            .isEq( "position.LongName", "Finance Officer" )
-            // the property in root to compare to projected val
-            .propertyIn( "CarID" )
-        );
-        // get results
-        prc.results = c.list();
+
+		// add subquery
+        prc.results = c.add(
+				c.createSubcriteria( "Car", "carstaff" )
+				// the property in the subquery to use
+				.withProjections( property="CarID" )
+				.joinTo( "carstaff.SalesPeople", "staff" )
+					.joinTo( "staff.Position", "position" )
+						.isEq( "position.LongName", "Finance Officer" )
+				// the property in root to compare to projected val
+				.propertyIn( "CarID" )
+			)
+			.list()
+			// Map it to the memento, so we can see it nicely.
+			.map( function( item ){
+				return item.getMemento();
+			} );
     }
 
     /**

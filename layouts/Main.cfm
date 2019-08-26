@@ -78,9 +78,9 @@
 						<span>Projection</span>
 					</a>
 				</li>
-				<li class="nav-item #event.getCurrentAction()==  'query_alias' ?'active':''# ">
-					<a class="nav-link" href="#event.buildLink( to='slides/query_alias' )#">
-						<span>Aliases</span>
+				<li class="nav-item #event.getCurrentAction()==  'query_joins' ?'active':''# ">
+					<a class="nav-link" href="#event.buildLink( to='slides/query_joins' )#">
+						<span>Joins</span>
 					</a>
 				</li>
 				<li class="nav-item #event.getCurrentAction()==  'query_subquery' ?'active':''# ">

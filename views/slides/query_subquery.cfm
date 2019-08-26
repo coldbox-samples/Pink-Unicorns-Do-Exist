@@ -3,19 +3,23 @@
 		<h6 class="m-0 font-weight-bold text-primary">SubQuery</h6>
 	</div>
 	<div class="card-body">
-		<div class="div-pre col-12">
-			var c = CarService.newCriteria();<br>
-			...<br>
-			c.add(<br>
-				&nbsp c.createSubcriteria( "Car", "carstaff" )<br>
-				&nbsp // the property in the subquery to use<br>
-				&nbsp .withProjections( property="CarID" )<br>
-				&nbsp .createAlias( "carstaff.SalesPeople", "staff" )<br>
-				&nbsp .createAlias( "staff.Position", "position" )<br>
-				&nbsp .isEq( "position.LongName", "Finance Officer" )<br>
-				&nbsp // the property in root to compare to projected val<br>
-				&nbsp .propertyIn( "CarID" )<br>
-			).list();
+		<div class="col-12">
+			<pre syntax="javascript">
+var c = carService.newCriteria();
+
+// add subquery
+prc.results = c.add(
+		c.createSubcriteria( "Car", "carstaff" )
+		// the property in the subquery to use
+		.withProjections( property="CarID" )
+		.joinTo( "carstaff.SalesPeople", "staff" )
+			.joinTo( "staff.Position", "position" )
+				.isEq( "position.LongName", "Finance Officer" )
+		// the property in root to compare to projected val
+		.propertyIn( "CarID" )
+	)
+	.list()
+			</pre>
 		</div>
 		<cfdump var="#prc.results#" expand="true">
 	</div>

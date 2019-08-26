@@ -6,16 +6,18 @@
 				Query by Make
 			</h6>
 		</a>
-		<div class="collapse" id="collapse1" data-parent="#accordion">
+		<div class="collapse show" id="collapse1" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
-					var c = CarService.newCriteria();<br>
-					...<br>
-					c.createAlias( "Make", "make", c.LEFT_JOIN )<br>
-					 .isEq( "make.LongName", "Ford" )<br>
-					 .list()
+				<div class="col-12">
+<pre>
+// left join
+var c = carService.newCriteria();
+prc.makes = c.joinTo( "Make", "make", c.LEFT_JOIN )
+	.isEq( "make.LongName", "Ford" )
+	.list();
+</pre>
 				</div>
-				<cfdump var="#prc.make#" expand="true">
+				<cfdump var="#prc.makes#" expand="false" label="Click to Expand">
 			</div>
 		</div>
 	</div>
@@ -28,15 +30,17 @@
 		</a>
 		<div class="collapse" id="collapse2" data-parent="#accordion">
 			<div class="card-body">
-				<div class="div-pre col-12">
-					var c = CarService.newCriteria();<br>
-					...<br>
-					c.createAlias( "SalesPeople", "staff" )<br>
-					 .createAlias( "staff.Position", "position" )<br>
-					 .isEq( "position.LongName", "General Manager" )<br>
-					 .list();
+				<div class="col-12">
+<pre>
+var c = carService.newCriteria();
+prc.salespeople = c
+	.joinTo( "SalesPeople", "staff" )
+		.joinTo( "staff.Position", "position" )
+			.isEq( "position.LongName", "General Manager" )
+	.list()
+</pre>
 				</div>
-				<cfdump var="#prc.salespeople#" expand="true">
+				<cfdump var="#prc.salespeople#" expand="false" label="Click to Expand">
 			</div>
 		</div>
 	</div>
