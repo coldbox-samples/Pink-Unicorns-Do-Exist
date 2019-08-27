@@ -182,15 +182,21 @@ component {
         prc.pageTitle = "Criteria Builder - Simple Query";
 
 		var c = carService.newCriteria();
-            c.between( "SaleDate", createODBCDate( "2013-04-01" ), createODBCDate( "2013-07-01" ) );
 
-        prc.count = c.count();
+		c.between( "SaleDate", createODBCDate( "2013-04-01" ), createODBCDate( "2013-07-01" ) );
 
-		prc.results = c.list()
+		prc.count = c.count();
+		prc.results = c
+			.peek( function( c ){
+				prc.log = c.getSQL();
+			} )
+			.list()
 			// Map it to the memento, so we can see it nicely.
 			.map( function( item ){
 				return item.getMemento();
 			} );
+
+		// Do the same query, but return a stream
         prc.streamResults = c.asStream().list();
     }
 

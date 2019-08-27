@@ -23,7 +23,8 @@
     ],
     "dependencies":{
         "coldbox":"^5.0.0",
-        "cborm":"^2.0.0"
+        "cborm":"^2.0.0",
+        "cbCodeFormat":"^1.6.0+5"
     },
     "devDependencies":{
         "testbox":"^3.0.0"
@@ -31,7 +32,8 @@
     "installPaths":{
         "coldbox":"coldbox/",
         "cborm":"modules/cborm/",
-        "testbox":"testbox/"
+        "testbox":"testbox/",
+        "cbCodeFormat":"modules/cbCodeFormat/"
     },
     "ignore":[],
     "testbox":{

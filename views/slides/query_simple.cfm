@@ -28,6 +28,9 @@ prc.results = c.list();
 							<td><cfdump var="#prc.results#" expand="false" label="Click to Expand"></td>
 						</tr>
 					</table>
+
+					<h4>SQL Log</h4>
+					#prc.log#
 				</div>
 			</div>
 		</div>
