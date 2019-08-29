@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+
+  # MySQL Database
+  cborm_db:
+    image: mysql:8
+    container_name: "cborm_db"
+    environment:
+       MYSQL_ROOT_PASSWORD: mysql
+       MYSQL_DATABASE: cartracker
+       MYSQL_USER: cartracker
+       MYSQL_PASSWORD: mysql
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./workbench/db:/var/lib/mysql
+      - ./workbench/CarTracker.sql:/docker-entrypoint-initdb.d/CarTracker.sql

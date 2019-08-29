@@ -11,15 +11,14 @@ component {
 	property name="carService"          inject="id:SimpleCarService";
 
 	// Syntax Highlight Utility
-	property name="cbCodeFormat"		inject="@cbCodeFormat";
+	property name="cbCodeHighlight"		inject="@cbCodeHighlight";
 
 	/**
 	* Executes before all handler actions
 	*/
 	any function preHandler( event, rc, prc, action, eventArguments ){
-		prc.formatter = variables.cbCodeFormat;
-		// Load cbCodeFormat assets + theme
-		addAsset( prc.formatter.getCSSAssets() );
+		// Load cbCodeHighlight assets + theme
+		addAsset( variables.cbCodeHighlight.getCSSAssets() );
 	}
 
     /**

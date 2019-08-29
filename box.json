@@ -1,7 +1,7 @@
 {
     "name":"Car Tracker CBORM Demo",
-	"version":"3.0.0",
-	"location":"forgeboxStorage",
+    "version":"3.0.0",
+    "location":"forgeboxStorage",
     "author":"Luis Majano <lmajano@ortussolutions.com>",
     "homepage":"https://github.com/coldbox-samples/Pink-Unicorns-Do-Exist",
     "repository":{
@@ -25,7 +25,7 @@
     "dependencies":{
         "coldbox":"^5.0.0",
         "cborm":"^2.0.0",
-        "cbCodeFormat":"^1.6.0+5"
+        "cbCodeHighlight":"^1.0.0+10"
     },
     "devDependencies":{
         "testbox":"^3.0.0"
@@ -34,7 +34,7 @@
         "coldbox":"coldbox/",
         "cborm":"modules/cborm/",
         "testbox":"testbox/",
-        "cbCodeFormat":"modules/cbCodeFormat/"
+        "cbCodeHighlight":"modules/cbCodeHighlight/"
     },
     "ignore":[],
     "testbox":{

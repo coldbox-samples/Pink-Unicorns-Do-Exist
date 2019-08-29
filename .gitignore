@@ -11,3 +11,6 @@ logs/**
 # env
 .env
 .settings
+
+# Docker Database
+workbench/db/**

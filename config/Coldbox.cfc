@@ -69,6 +69,9 @@ component{
 					include = "",
 					exclude = ""
 				}
+			},
+			cbCodeHighlight = {
+				preRenderer = true
 			}
 		};
 
