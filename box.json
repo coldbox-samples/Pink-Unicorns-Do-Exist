@@ -28,15 +28,22 @@
         "cbCodeHighlight":"^1.0.0+10"
     },
     "devDependencies":{
-        "testbox":"^3.0.0"
+		"testbox":"^3.0.0",
+        "commandbox-dotenv":"*",
+        "commandbox-cfconfig":"*",
+        "commandbox-cfformat":"*"
     },
     "installPaths":{
         "coldbox":"coldbox/",
         "cborm":"modules/cborm/",
         "testbox":"testbox/",
         "cbCodeHighlight":"modules/cbCodeHighlight/"
+	},
+	"scripts":{
+        "postInstall":"pathExists .env || cp .env.example .env",
+        "format":"cfformat config/**/*.cfc,handlers/**/*.cfc,models/**/*.cfc,tests/specs/**/*.cfc,*.cfc --overwrite",
+        "format:check":"cfformat config/**/*.cfc,handlers/**/*.cfc,models/**/*.cfc,tests/specs/**/*.cfc,*.cfc --check"
     },
-    "ignore":[],
     "testbox":{
         "runner":[
             {
