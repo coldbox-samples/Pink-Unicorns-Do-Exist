@@ -4,7 +4,7 @@ services:
 
   # MySQL Database
   cborm_db:
-    image: mysql:8
+    image: mysql:5.7
     container_name: "cborm_db"
     environment:
        MYSQL_ROOT_PASSWORD: mysql
