@@ -67,15 +67,17 @@ component {
 
 		prc.pageTitle 	= "Active Entity";
 
-		//Create new Active car
-        var car 		= entityNew( "ActiveCar" );
-		prc.newCar 		= car.new( properties = { Year = 2012, ListPrice = 22000 } );
+		// Create new Active car
+		prc.newCar	= getInstance( "ActiveCar" )
+			.new( { Year = 2012, ListPrice = 22000 } )
+			.validateOrFail()
 
 		//Find a specific cars
-		prc.myCar 		= car.findWhere( criteria = { CarID = rc.carID } );
+		prc.myCar 		= getInstance( "ActiveCar" )
+			.findWhere( criteria = { CarID = rc.carID } );
 
 		//Get list of Active cars
-		prc.cars 		= car
+		prc.cars 		= getInstance( "ActiveCar" )
 			.list( max = rc.max, asQuery = false )
 			// Map it to the memento, so we can see it nicely.
 			.map( function( item ){

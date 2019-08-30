@@ -23,6 +23,7 @@ component extends="cborm.models.ActiveEntity"{
 			</div>
 		</div>
 	</div>
+
 	<div class="card border-0 shadow mb-4">
 		<a href="#collapse2" class=" card-header border-0 py-3" data-toggle="collapse"
 				role="button" aria-expanded="false" aria-controls="collapse2" data-target="#collapse2">
@@ -34,14 +35,41 @@ component extends="cborm.models.ActiveEntity"{
 			<div class="card-body">
 				<div class="col-12">
 <pre>
-var car = entityNew( "ActiveCar" );<br>
-prc.newCar = car.new( properties={ Year= 2012, ListPrice= 22000 });
+// Create new Active car
+prc.newCar	= getInstance( "ActiveCar" )
+	.new( { Year = 2012, ListPrice = 22000 } )
+	.validateOrFail()
+	.save();
 </pre>
 				</div>
 				<cfdump var="#prc.newcar.getMemento()#" expand="true">
 			</div>
 		</div>
 	</div>
+
+	<div class="card border-0 shadow mb-4">
+		<a href="#collapse2b" class=" card-header border-0 py-3" data-toggle="collapse"
+				role="button" aria-expanded="false" aria-controls="collapse2b" data-target="#collapse2b">
+			<h6 class="m-0 font-weight-bold text-primary">
+				Update a Car
+			</h6>
+		</a>
+		<div class="collapse" id="collapse2b" data-parent="#accordion">
+			<div class="card-body">
+				<div class="col-12">
+<pre>
+// Update a car from incoming data
+prc.newCar	= getInstance( "ActiveCar" )
+	.getOrFail( rc.id ?: -1 )
+	.populate( rc )
+	.validateOrFail()
+	.save();
+</pre>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="card border-0 shadow mb-4">
 		<a href="#collapse3" class=" card-header border-0 py-3" data-toggle="collapse"
 				role="button" aria-expanded="false" aria-controls="collapse3" data-target="#collapse3">
@@ -53,14 +81,14 @@ prc.newCar = car.new( properties={ Year= 2012, ListPrice= 22000 });
 			<div class="card-body">
 				<div class="col-12">
 <pre>
-var car = entityNew( "ActiveCar" );<br>
-prc.myCar = car.findWhere( criteria={ CarID = 12 } );
+prc.myCar = getInstance( "ActiveCar" ).findWhere( criteria={ CarID = 12 } );
 </pre>
 				</div>
 				<cfdump var="#prc.mycar.getMemento()#" expand="true">
 			</div>
 		</div>
 	</div>
+
 	<div class="card border-0 shadow mb-4">
 		<a href="#collapse4" class=" card-header border-0 py-3" data-toggle="collapse"
 				role="button" aria-expanded="false" aria-controls="collapse4" data-target="#collapse4">
@@ -72,8 +100,7 @@ prc.myCar = car.findWhere( criteria={ CarID = 12 } );
 			<div class="card-body">
 				<div class="col-12">
 <pre>
-var car = entityNew( "ActiveCar" );<br>
-prc.cars = car.list( max=3, asQuery=false );
+prc.cars = getInstance( "ActiveCar" ).list( max=3, asQuery=false );
 </pre>
 				</div>
 				<cfdump var="#prc.cars#" expand="true">
