@@ -20,5 +20,6 @@
         "heapSize":"768"
     },
     "openBrowser":true,
-    "debug":true
+    "debug":true,
+    "debugh":true
 }

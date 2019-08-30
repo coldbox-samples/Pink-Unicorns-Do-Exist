@@ -1,6 +1,6 @@
 {
     "datasources":{
-        "cartracker":{
+		"cartracker":{
             "allowAlter":true,
             "allowCreate":true,
             "allowDelete":true,
@@ -11,10 +11,11 @@
             "allowSelect":true,
             "allowUpdate":true,
             "blob":"false",
-            "class":"com.mysql.jdbc.Driver",
+            "class":"com.mysql.cj.jdbc.Driver",
             "clob":"false",
+            "connectionLimit":"100",
             "connectionTimeout":"1",
-            "custom":"useUnicode=true&characterEncoding=UTF-8&useLegacyDatetimeCode=true&useSSL=false",
+            "custom":"useUnicode=true&characterEncoding=UTF-8&serverTimezone=America%2FChicago&useLegacyDatetimeCode=true&useSSL=false",
             "database":"cartracker",
             "dbdriver":"MySQL",
             "dsn":"jdbc:mysql://{host}:{port}/{database}",
